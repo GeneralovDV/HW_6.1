@@ -1,30 +1,27 @@
 package ru.netology.stats;
+
+import static java.lang.Long.sum;
+
 public class StatsService {
-    public int sumSales(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
+    public long sumSales(long[] sales) {
+        long sum = 0;
+        for (long sale: sales) {
+            sum = sum + sale;
         }
         return sum;
     }
 
-    public int averageSalesAmount(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
-//        for (int i : arr) {
-//            sum = sum + i;
-        }
-        return (int) (sum / arr.length);
+    public long averageSalesAmount(long[] sales) {
+        long sum = sumSales(sales);
+        return (sum / sales.length);
     }
 
-    public int maxSales(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+
+    public long maxSales(long[] sales) {
         int maxMonth = 0;
         int month = 0;
-        for (int sale : sales) {
+        for (long sale : sales) {
             if (sale >= sales[maxMonth]) {
                 maxMonth = month;
             }
@@ -33,11 +30,10 @@ public class StatsService {
         return maxMonth + 1;
     }
 
-    public int minSales(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    public long minSales(long[] sales) {
         int minMonth = 0;
         int month = 0;
-        for (int sale : sales) {
+        for (long sale : sales) {
             if (sale <= sales[minMonth]) {
                 minMonth = month;
             }
@@ -46,38 +42,27 @@ public class StatsService {
         return minMonth + 1;
     }
 
-    public int belowAverage(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int sum = 0;
-        int average = 0;
+    public long belowAverage(long[] sales) {
+        long average = averageSalesAmount(sales);
         int count = 0;
-
-        for(int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
-        }
-        average = sum / arr.length;
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < average) count++;
+        for(long sale : sales) {
+            if (sale < average) {
+                count++;
+            }
         }
         return count;
 
     }
 
 
-    public int aboveAverage(int[] sales) {
-        int[] arr = new int[]{8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int sum = 0;
-        int average = 0;
+
+    public long aboveAverage(long[] sales) {
+        long average = averageSalesAmount(sales);
         int count = 0;
-
-        for(int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
-        }
-        average = sum / arr.length;
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > average) count++;
+        for(long sale : sales) {
+            if (sale > average) {
+                count++;
+            }
         }
         return count;
 

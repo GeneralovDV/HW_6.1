@@ -5,34 +5,36 @@ import org.junit.jupiter.api.Test;
 
 public class StatsServiceTest {
     @Test
-    public void sum() {
+    public long sum() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expected = 180;
-        int actual = service.sumSales(sales);
+        long expected = 180;
+        long actual = service.sumSales(sales);
 
         Assertions.assertEquals(expected, actual);
+        return expected;
     }
 
     @Test
-    public void averageSalesAmount() {
+    public long averageSalesAmount() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expected = 15;
-        int actual = service.averageSalesAmount(sales);
+        long expected = 15;
+        long actual = service.averageSalesAmount(sales);
 
         Assertions.assertEquals(expected, actual);
 
+        return expected;
     }
 
     @Test
     public void maxSales() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 8;
-        int actual = service.maxSales(sales);
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 8;
+        long actual = service.maxSales(sales);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -40,9 +42,9 @@ public class StatsServiceTest {
     @Test
     public void minSales() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 9;
-        int actual = service.minSales(sales);
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 9;
+        long actual = service.minSales(sales);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -50,9 +52,9 @@ public class StatsServiceTest {
     @Test
     public void belowAverage() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.belowAverage(sales);
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 5;
+        long actual = service.belowAverage(sales);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -60,9 +62,9 @@ public class StatsServiceTest {
     @Test
     public void aboveAverage() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
-        int actual = service.aboveAverage(sales);
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        long expected = 5;
+        long actual = service.aboveAverage(sales);
 
         Assertions.assertEquals(expected, actual);
     }
